@@ -1,11 +1,15 @@
-import React from 'react'
+import { Route, Routes } from 'react-router-dom';
+import ProductsList from './features/product';
+import Product from './features/product/Product';
+import PageLayout from './components/PageLayout';
 
 export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>hello there</p>
-      </header>
-    </div>
+    <Routes>
+      <Route path={'/'} element={<PageLayout/>}>
+        <Route index element={<ProductsList/>}/>
+        <Route path={'product/:id'} element={<Product/>}/>
+      </Route>
+    </Routes>
   )
 }
